@@ -12,4 +12,4 @@ for lt,ln,el in zip(lat,lon,elev):
     fg.add_child(folium.Marker(location=[lt,ln],popup=str(el) + " m",icon=folium.Icon(color="red")))
 
 map.add_child(fg)
-map.save("MapDhake.html")
+map.save("Map.html")

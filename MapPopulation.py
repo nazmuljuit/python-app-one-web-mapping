@@ -17,7 +17,7 @@ map = folium.Map(location=[38.58,-99.09],zoom_start=6,tiles="Stamen Terrain")
 #map = folium.Map(location=[23.81,90.41],zoom_start=6,tiles="Mapbox Bright")
 fg = folium.FeatureGroup(name="My App")
 for lt,ln,el in zip(lat,lon,elev):
-    fg.add_child(folium.Marker(location=[lt,ln],popup=str(el) + " m",icon=folium.Icon(color=color_procedure(el))))
-
+    fg.add_child(folium.CircleMarker(location=[lt,ln],radius=6,popup=str(el) + " m",fill_color=color_procedure(el),color='gray',fil_opacity=.07))
+fg.add_child(folium.GeoJson(data=(open('world.json','r',encoding='utf-8-sig'),read())))
 map.add_child(fg)
 map.save("Map.html")
